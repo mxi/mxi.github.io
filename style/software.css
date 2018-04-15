@@ -1,0 +1,32 @@
+@font-face {
+	font-family: "Header";
+	src: url("header.ttf");
+}
+
+@font-face {
+	font-family: "Body";
+	src: url("body.otf");
+}
+
+#java-programs-header {
+	font-family: "Header";
+	font-size: 18px;
+}
+
+#java-programs-table {
+
+}
+
+.column-title {
+	font-family: "Header";
+	font-size: 18px;
+	padding-right: 60px;
+	color: rgb(120, 60, 60);
+}
+
+.data-cell {
+	font-family: "Body";
+	font-size: 14px;
+	padding-right: 60px;
+	color: rgb(60, 60, 60);
+}

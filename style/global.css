@@ -1,0 +1,90 @@
+@font-face {
+	font-family: "Header";
+	src: url("header.ttf");
+}
+
+@font-face {
+	font-family: "Body";
+	src: url("body.otf");
+}
+
+body {
+	background-color: rgb(220, 220, 220);
+}
+
+.master-div {
+	padding-left: 25%;
+	padding-right: 25%;
+	margin-bottom: 50px;
+}
+
+#main-body-div {
+	font-family: "Body";
+	font-size: 14px;
+	color: rgb(80, 80, 80);
+}
+
+.master-footer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 27%;
+	padding-right: 27%;
+	font-family: "Body";
+	font-size: 12px;
+	color: rgb(80, 80, 80);
+}
+
+.header-object {
+	margin-top: -25px;
+	padding: 10px;
+	height: 40px;
+}
+
+.header-text {
+	font-family: "Header";
+	font-size: 28px;
+	color: rgb(120, 60, 60);
+	display: inline-block;
+}
+
+.header-directory-button {
+	font-family: "Header";
+	font-size: 18px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 30px;
+	padding-top: 28px;
+	color: rgb(60, 60, 120);
+	display: inline-block;
+	float: right;
+	text-decoration: none;
+}
+
+.header-directory-button:hover {
+	text-decoration: underline;
+}
+
+.div-separator {
+	height: 2px;
+	border: none;
+	background-color: rgb(120, 120, 120);
+}
+
+.hyperlink {
+	text-decoration: none;
+	color: rgb(60, 60, 220);
+}
+
+.hyperlink:hover {
+	text-decoration: underline;
+}
+
+.super-image {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
