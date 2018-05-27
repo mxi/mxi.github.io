@@ -9,10 +9,12 @@
 }
 
 body {
+	display: block;
 	background-color: rgb(220, 220, 220);
 }
 
 .master-div {
+	padding-top: 20px;
 	padding-left: 25%;
 	padding-right: 25%;
 	margin-bottom: 50px;
@@ -31,7 +33,7 @@ body {
 	padding-right: 27%;
 	font-family: "Body";
 	font-size: 12px;
-	color: rgb(80, 80, 80);
+	color: rgb(160, 160, 160);
 }
 
 .header-object {
@@ -50,12 +52,28 @@ body {
 .header-directory-button {
 	font-family: "Header";
 	font-size: 18px;
-	margin-top: 0px;
+	margin-top: 25px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 30px;
-	padding-top: 28px;
+	padding: 5px;
 	color: rgb(60, 60, 120);
+	display: inline-block;
+	float: right;
+	text-decoration: none;
+}
+
+.selected-directory-button {
+	font-family: "Header";
+	font-size: 18px;
+	margin-top: 25px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 30px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: rgb(60, 60, 120);
+	color: rgb(240, 240, 240);
 	display: inline-block;
 	float: right;
 	text-decoration: none;
@@ -73,7 +91,7 @@ body {
 
 .hyperlink {
 	text-decoration: none;
-	color: rgb(60, 60, 220);
+	color: rgb(60, 60, 180);
 }
 
 .hyperlink:hover {
