@@ -61,27 +61,39 @@ body {
     transition: opacity 0.5s;
 }
 
+.header_group_links_entry .header_group_links_entry_img {
+    position: relative;
+    top: 0px;
+    transition: top .25s;
+}
+
+.header_group_links_entry:hover .header_group_links_entry_img {
+    top: -5px;
+    transition: top .25s;
+}
+
 /* TOOLTIPS */
 .header_group_links_entry .header_group_links_entry_tooltip {
     font-family: "text_fa";
     background-color: #000;
     color: #fff;
-    width: auto;
+    width: 150px;
     height: auto;
     text-align: center;
     padding: 5px;
     visibility: hidden;
 
     position: absolute;
+    margin-left: -50px;
     margin-top: 5px;
 
     opacity: 0;
-    transition: opacity 0.5s;
 }
 
 .header_group_links_entry:hover .header_group_links_entry_tooltip {
     visibility: visible;
     opacity: 1;
+    transition: opacity .75s;
 }
 
 /*
