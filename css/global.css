@@ -1,0 +1,14 @@
+body {
+	background-color: rgb(250, 255, 255);
+	
+	width: 850px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	overflow-y: scroll;
+}
+
+.page {
+	margin-left: auto;
+	margin-right: auto;
+}
