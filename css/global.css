@@ -9,13 +9,12 @@
 }
 
 :root {
-    --hdr_width: 975px;
     --pg_width: 850px;
 }
 
 body {
     display: block;
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(240, 240, 240);
     margin: auto;
     overflow-y: scroll;
 }
@@ -27,12 +26,11 @@ body {
 .header {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: rgb(80, 65, 80);
-    box-shadow: 5px 5px 5px 5px rgb(45, 45, 45);
+    background-color: rgb(0, 0, 0);
 }
 
 .header_group {
-    width: var(--hdr_width);
+    width: var(--pg_width);
     margin: auto;
 }
 
@@ -44,16 +42,23 @@ body {
     color: rgb(240, 240, 240);
 }
 
+#home_link {
+    text-decoration: none;
+    color: rgb(240, 240, 240);
+}
+
 .header_group_links {
     margin-top: 5px;
+    top: 0px;
+    transition: top .25s; 
     float: right;
 }
 
 .header_group_links_entry {
     display: inline-block;
+    margin-left: 2px;
     opacity: 0.5;
     transition: opacity 0.5s;
-    margin-left: 2px;
 }
 
 .header_group_links_entry:hover {
@@ -75,16 +80,17 @@ body {
 /* TOOLTIPS */
 .header_group_links_entry .header_group_links_entry_tooltip {
     font-family: "text_fa";
-    background-color: #000;
-    color: #fff;
+    background-color: rgb(0, 0, 0);
+    color: rgb(240, 240, 240);
     width: 150px;
     height: auto;
+    border-radius: 5px;
     text-align: center;
     padding: 5px;
     visibility: hidden;
 
     position: absolute;
-    margin-left: -50px;
+    margin-left: -60px;
     margin-top: 5px;
 
     opacity: 0;
@@ -93,7 +99,7 @@ body {
 .header_group_links_entry:hover .header_group_links_entry_tooltip {
     visibility: visible;
     opacity: 1;
-    transition: opacity .75s;
+    transition: opacity .25s;
 }
 
 /*
@@ -102,12 +108,12 @@ body {
 
 .link {
     text-decoration: none;
-    color: rgb(220, 150, 150);
+    color: rgb(0, 110, 185);
     transition: color 0.5s;
 }
 
 .link:hover {
-    color: rgb(150, 150, 220);
+    color: rgb(0, 175, 240);
     transition: color 0.5s;
 }
 
@@ -122,14 +128,14 @@ body {
     font-family: "text_fa";
     text-decoration: none;
     font-size: 28px;
-    color: rgb(185, 185, 240);
+    color: rgb(0, 0, 0);
 }
 
 .page p {
     font-family: "text_fa";
     text-decoration: none;
     font-size: 18px;
-    color: rgb(210, 210, 210);
+    color: rgb(120, 120, 120);
 }
 
 /*
