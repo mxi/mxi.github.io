@@ -1,5 +1,5 @@
 <head id="html_head">
-    <title> Home </title>
+    <title> Android Apps </title>
     <link rel="stylesheet" type="text/css" href="css/global.css" />
     <link rel="icon" href="img/ico.png" />
 </head>
@@ -7,7 +7,7 @@
 <script>
     // The depth of the directory this file
     // is located in starting from domain/index.html
-    const base_directory_depth = 0;
+    const base_directory_depth = 2;
     var directory_builder = "";
     for (var i = 0; i < base_directory_depth; ++i) {
         directory_builder += "../";
@@ -39,7 +39,7 @@
                         Github Profile
                     </span>
                 </div>
-                <div class="entry">
+                <div class="selected_entry">
                     <a href="dev/android/index.html">
                         <img src="img/android.png" alt="Android apps" width="40" height="40" />
                     </a>
@@ -59,44 +59,18 @@
         </div>
     </div>
     <div class="page">
-        <p>
-            If you're reading this at night, don't worry, you won't hurt your eyes :)
-        </p>
-        <h1> Hey! </h1>
-        <p>
-            Welcome to my humble website. I'm Maxim (or Max), a highschool student, and a math and programming enthusiast. I experiment
-            a lot with all sorts of stuff including, but not limited to: Graphics, Multi-Threading, Networking, and just
-            now web development.
-        </p>
-        <p>
-            Now... I thought my list of achievements was going to be impressive, but all it boils down to is just experimenting and learning.
-            But you can still visit my
-            <a class="text_link" target="_blank" href="https://github.com/MKMax">
-                Github Profile</a>
-            and check out what I may have on there. As of now, I haven't made much besides a few personal apps. However, with the creation
-            of this website, and the start of my next school year, I'm hoping to improve this. In fact, I have a few projects
-            pending that are planned to be released to the public some time in the future!
-        </p>
-        <p>
-            I also thought I would tag on a
-            <a class="text_link" href="blog/index.html"> blog</a> about programming onto here for anyone interested.
-        </p>
-        <p>
-            This website is also coded entirely by hand with no scripts or backend applications. It's a pain to manage.
-        </p>
-        <br>
-        <p> Anyways, see you around! </p>
+        <p> You can see a listing of all my android apps here: </p>
+        <p> I actually don't have any right now ... :(</p>
     </div>
 </body>
 
 <!--
-The following script is designed to make my life
-easier when making new pages in different directories
-by automatically adjusting the paths to resources
-such as css and other scripts to match those in
-the base directory.    
+    The following script is designed to make my life
+    easier when making new pages in different directories
+    by automatically adjusting the paths to resources
+    such as css and other scripts to match those in
+    the base directory.    
 !-->
-
 <script>
     // Head:
     var head_entries = document.getElementById("html_head").getElementsByTagName("link");
