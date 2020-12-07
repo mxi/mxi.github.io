@@ -1,29 +1,64 @@
 @font-face {
-    font-family: "default";
-    font-weight: normal;
-    src: url("font/default.ttf");
+    font-family: "mono";
+    font-style: italic;
+    src: url("font/roboto/mono-variable-italic.ttf");
 }
 
 @font-face {
-    font-family: "default";
-    font-weight: bold;
-    src: url("font/default-bold.ttf")
+    font-family: "mono";
+    src: url("font/roboto/mono-variable.ttf");
 }
 
-/* all pages will contain the following styles */
+@font-face {
+    font-family: "sans";
+    font-weight: bold;
+    font-style: italic;
+    src: url("font/roboto/sans-bold-italic.ttf");
+}
+
+@font-face {
+    font-family: "sans";
+    font-weight: bold;
+    src: url("font/roboto/sans-bold.ttf");
+}
+
+@font-face {
+    font-family: "sans";
+    font-style: italic;
+    src: url("font/roboto/sans-italic.ttf");
+}
+
+@font-face {
+    font-family: "sans";
+    font-weight: normal;
+    src: url("font/roboto/sans-regular.ttf");
+}
+
+@font-face {
+    font-family: "serif";
+    src: url("font/roboto/serif-variable.ttf");
+}
+
+
+:root {
+    --primary: rgb(255, 255, 255);
+    --secondary: rgb(64, 64, 64);
+}
+
 * {
     margin: 0% 0%;
 }
 
 body {
-    background-color: rgb(255, 255, 240);
-    padding: 0% 15%;
+    padding: 0% 25%;
+    background-color: var(--primary);
     
-    font-family: "default";
+    font-family: "serif";
     font-weight: normal;
     font-size: 12pt;
 }
 
+/* --- TEXT --------------------------------------------------------- */
 h1 {
     font-size: 16pt;
 }
@@ -48,65 +83,52 @@ h6 {
     font-size: 9pt;
 }
 
+/* --- ANCHOR ------------------------------------------------------- */
 a {
     text-decoration: none;
-    color: rgb(40, 130, 80);
+    color: var(--accent-1-dark);
+}
+
+
+a:visited {
+    text-decoration: none;
+    color: var(--accent-2-dark);
 }
 
 a:hover {
     text-decoration: underline;
 }
 
+/* --- HORIZONTAL LINE ---------------------------------------------- */
 hr {
+    margin: 4pt 0pt;
     border-width: 1pt;
     border-color: rgb(0, 0, 0, 0.33);
 }
 
-#head {
+/* --- HEADER ------------------------------------------------------- */
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+header .icon .title {
+    font-weight: bold;
+    font-size: 24pt;
+}
+
+header .links .link {
+    margin-left: 12pt;
+}
+
+/* --- FOOTER ------------------------------------------------------- */
+footer {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
-
-    padding: 5pt 0pt;
-}
-
-#head * {
-    color: inherit;
-}
-
-#head-left * {
-    padding-right: 10pt;
-}
-
-#head-right * {
-    padding-left: 10pt;
-}
-
-#head-title {
-    font-size: 24pt;
-}
-
-.head-link {
-    text-decoration: none;
-}
-
-.head-link:hover {
-    text-decoration: underline;
-}
-
-#text {
-    margin: 15pt 0pt;
-}
-
-#foot {
-    width: 100%;
-    margin: 15pt 0pt;
-}
-
-#foot-cpyr {
-    font-size: 8pt;
-    text-align: center;
-    color: rgb(0, 0, 0, 0.5);
+    justify-content: center;
 }
