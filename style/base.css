@@ -1,0 +1,74 @@
+:root {
+	box-sizing: border-box;
+}
+
+
+/* BODY */
+@media (max-width: 980px) {
+	body {
+		margin: 0% 5%;
+	}
+}
+
+
+/* HEADER */
+@media (max-width: 980px) {
+	header {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		border-width: 0 0 1px 0;
+		border-color: inherit;
+		border-style: dashed;
+	}
+
+	header aside h1 {
+		font-size: 8vw;
+		margin: 0.5em 0;
+	}
+
+	header nav {
+		font-size: 4vw;
+		margin-bottom: 1em;
+	}
+
+	header nav a {
+		margin: 0 0.5em;
+		padding: 0.25em 0;
+		color: inherit;
+		text-decoration: none;
+		border-width: 1px 0 0 0;
+		border-color: inherit;
+		border-style: solid;
+	}
+}
+
+
+/* MAIN */
+main code {
+	padding: 12pt;
+	border-width: 0 0 0 1px;
+	border-style: dashed;
+}
+
+main code.block {
+	display: block;
+	white-space: pre-wrap;
+}
+
+
+/* FOOTER */
+footer {
+	border-width: 1px 0 0 0;
+	border-color: inherit;
+	border-style: dashed;
+}
+
+
+
+
+
+
+
+
