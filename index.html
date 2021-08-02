@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Maxim ⇒ Home</title>
+        <meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <style>
+            :root {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            header {
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                align-items: center;
+                justify-content: center;
+            }
+
+            header aside {
+                text-align: center;
+            }
+
+            header aside img {
+                margin: auto;
+            }
+
+            header aside h1 {
+                margin: 0;
+            }
+
+            header nav a {
+                color: inherit;
+                text-decoration: none;
+                border-style: solid;
+                border-color: inherit;
+            }
+
+            @media (max-width: 980px) {
+                header {
+                    flex-flow: column nowrap;
+                }
+
+                header aside img {
+                    max-width: 50vw;
+                    max-height: 50vw;
+                }
+
+                header aside h1 {
+                    font-size: 7vw;
+                }
+
+                header nav {
+                    font-size: 4vw;
+                    margin-top: 1em;
+                }
+
+                header nav a {
+                    margin: 0em 1em;
+                    padding: 0.5em 0em;
+                    border-width: 1px 0 0 0;
+                }
+            }
+
+            @media (min-width: 981px) {
+                header {
+                    flex-flow: row nowrap;
+                }
+
+                header aside img {
+                    width: 8cm;
+                    height: 8cm;
+                }
+
+                header aside h1 {
+                    font-size: 28pt;
+                }
+
+                header nav {
+                    font-size: 20pt;
+                    margin-left: 1em;
+                }
+
+                header nav a {
+                    display: block;
+                    margin: 1em 0em;
+                    padding: 0em 1em;
+                    border-width: 0 0 0 1px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <aside>
+                <img src="/art/apex.svg"/>
+                <h1>Maxim Kasyanenko</h1>
+            </aside>
+            <nav>
+                <a href="/profile/">Profile</a>
+                <a href="/journal/">Journal</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </header>
+    </body>
+</html>
