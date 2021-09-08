@@ -1,0 +1,6 @@
+<svg
+	viewBox="0 0 100 100"
+	xmlns="http://www.w3.org/2000/svg">
+    <path d="M20,100 L20,50 L80,50 L80,100 L60,100 L60,70 L40,70 L40,100"/><!--doorway-->
+    <path d="M0,60 L50,0 L100,60"/><!--roof-->
+</svg>

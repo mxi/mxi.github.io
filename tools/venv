@@ -1,0 +1,18 @@
+#!/bin/sh
+# A virtual environment setup script inspired by Python's venv but
+# more lightweight. This should be run in the root directory of the
+# projectm, i.e., in the parent directory of this tools directory.
+
+disable() {
+	export PATH="$_VENV_OLD_PATH"
+	export PS1="$_VENV_OLD_PS1"
+}
+
+enable() {
+	export _VENV_OLD_PATH="$PATH"
+	export _VENV_OLD_PS1="$PS1"
+	export PATH="$(pwd)/tools:$PATH"
+	export PS1="(mxi-venv) $PS1"
+}
+
+enable

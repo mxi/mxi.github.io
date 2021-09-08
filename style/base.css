@@ -1,0 +1,87 @@
+:root {
+    box-sizing: border-box;
+}
+
+
+/* DEVICE AGNOSTIC */
+header {
+    margin: 5vh 0vw;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header a {
+    border-style: dashed;
+    border-color: inherit;
+    border-width: 0 0 1px 0;
+}
+
+header a:hover {
+    border-style: solid;
+}
+
+footer {
+    margin: 5vh 0vw;
+    text-align: center;
+    font-size: 8pt;
+}
+
+
+/* MOBILE */
+@media (max-width: 980px) {
+    body {
+        margin: 0vh 10vw;
+    }
+
+	header div {
+		margin-right: 5vw;
+	}
+
+    header a {
+		padding: 1vw 0vw;
+    }
+
+    header a img {
+        width: 10vw;
+    }
+
+    header h1 {
+        font-size: 7vw;
+    }
+
+    header em {
+        font-size: 4vw;
+    }
+}
+
+@media (min-width: 981px) {
+    body {
+        margin: 0vh 25vw;
+    }
+
+	header div {
+		margin-right: 10mm;
+	}
+
+    header a {
+        padding: 2.5mm 0.0mm;
+    }
+
+    header img {
+        width: 15mm;
+    }
+
+    header h1 {
+        font-size: 28pt;
+    }
+
+    header em {
+        font-size: 20pt;
+    }
+}

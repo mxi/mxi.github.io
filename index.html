@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Maxim ⇒ Home</title>
+        <title>Maxim » Home</title>
         <meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width,initial-scale=1"/>
         <style>
@@ -9,6 +9,7 @@
                 box-sizing: border-box;
             }
 
+            /* DEVICE AGNOSTIC */
             body {
                 margin: 0;
             }
@@ -33,21 +34,26 @@
                 margin: 0;
             }
 
-            header nav a {
+            header a {
                 color: inherit;
                 text-decoration: none;
-                border-style: solid;
+                border-style: dashed;
                 border-color: inherit;
             }
 
+            header a:hover {
+                border-style: solid;
+            }
+
+            /* MOBILE */
             @media (max-width: 980px) {
                 header {
                     flex-flow: column nowrap;
+                    font-size: 4vw;
                 }
 
                 header aside img {
-                    max-width: 50vw;
-                    max-height: 50vw;
+                    width: 50vw;
                 }
 
                 header aside h1 {
@@ -55,7 +61,6 @@
                 }
 
                 header nav {
-                    font-size: 4vw;
                     margin-top: 1em;
                 }
 
@@ -66,14 +71,15 @@
                 }
             }
 
+            /* DESKTOP */
             @media (min-width: 981px) {
                 header {
                     flex-flow: row nowrap;
+                    font-size: 20pt;
                 }
 
                 header aside img {
                     width: 8cm;
-                    height: 8cm;
                 }
 
                 header aside h1 {
@@ -81,7 +87,6 @@
                 }
 
                 header nav {
-                    font-size: 20pt;
                     margin-left: 1em;
                 }
 
@@ -98,13 +103,13 @@
     <body>
         <header>
             <aside>
-                <img src="/art/apex.svg"/>
+                <img src="/art/carrier/complex.svg" alt="carrier"/>
                 <h1>Maxim Kasyanenko</h1>
             </aside>
             <nav>
-                <a href="/profile/">Profile</a>
+                <a href="/portfolio/">Portfolio</a>
                 <a href="/journal/">Journal</a>
-                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
             </nav>
         </header>
     </body>
