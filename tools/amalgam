@@ -4,6 +4,33 @@ import sys
 from dataclasses import dataclass
 
 
+help_ = \
+"""
+SYNOPSIS
+    amalgam - link an HTML page index.
+
+    After the impress tool generates the desired HTML pages and
+    associated index card files, amalgam concatenates those card files
+    and prints them into an index page template.
+
+    The index page template should have a single marker, `@index@`,
+    identical in syntax to those used impress, which will be
+    substituted with the concatenated index cards.
+
+USAGE
+    amalgam [-dc path] [-i file] [-o file] [-h]
+
+ARGUMENTS
+    -dc path....Specify the directory of rendered index cards to be 
+                concatenated into a page. Defaults to `.gen/card/`.
+    -i file.....Specify the template index file with the `@index@`
+                marker to be substituted. Defaults to
+                `.gen/template/index.html`.
+    -o file.....Specify the index output file. Defaults to `index.html`.
+    -h..........Print this terse help page.
+"""
+
+
 def jointmessage(*items):
     return ' '.join(str(x) for x in items)
 
@@ -54,7 +81,7 @@ def main():
     a = parseargs()
 
     if a.help_:
-        print(manual)
+        print(help_)
         return 0
 
     # f_input
