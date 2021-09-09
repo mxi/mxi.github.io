@@ -4,23 +4,44 @@
         <title>Maxim » Journal</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <link rel="stylesheet" href="/style/base.css"/>
+		<link rel="stylesheet" href="/style/theme/header.css"/>
+		<link rel="stylesheet" href="/style/theme/card.css"/>
+		<link rel="stylesheet" href="/style/theme/etc.css"/>
     </head>
 
     <body>
         <header>
-            <div>
-                <h1>Journal</h1>
+            <div class="title-area">
+                <h1 class="title">Journal</h1>
+				<em class="sub-title"></em>
             </div>
-            <a href="/">
-                <img src="/art/house/simple.svg" alt="home"/>
-            </a>
+			<div class="icon-area">
+				<a class="icon-anchor" href="/">
+					<img class="icon" src="/art/house/simple.svg" alt="home"/>
+				</a>
+			</div>
         </header>
 
         <main>
-			<section>
-				
-			</section>
+			<a class="card-anchor" href="/">
+				<section class="card">
+					<div class="info-bar">
+						<div class="title-area">
+							<h1 class="title">Demo 1 With a Long Title or Something</h1>
+							<em class="sub-title">Spicy with a long substitle or something.</em>
+						</div>
+						<p class="date">
+							2021-08-25
+						</p>
+					</div>
+					<hr/>
+					<p class="brief">
+						Here is a brief description of an article
+						that was written long ago. Nobody is safe
+						from this.
+					</p>
+				</section>
+			</a>
         </main>
 
         <footer>
