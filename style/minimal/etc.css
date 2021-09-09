@@ -3,6 +3,47 @@
 }
 
 /* DEVICE AGNOSTIC */
+body {
+	font-family: serif;
+	font-size: 12pt;
+}
+
+main h1 { 
+	font-size: 16pt; 
+}
+
+main h2 { 
+	font-size: 14pt; 
+}
+
+main h3 { 
+	font-size: 12pt; 
+}
+
+main img {
+	display: block;
+	margin: auto;
+}
+
+main code {
+	padding: 0.5em;
+	font-size: 10pt;
+}
+
+main pre {
+	overflow: auto;
+	padding: 1em;
+	border-color: lightgray;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+main pre code {
+	padding: 0;
+	font-size: 10pt;
+}
+
 footer {
 	margin: 5vh 0vw;
 	text-align: center;
@@ -14,11 +55,19 @@ footer {
 	body {
 		margin: 0vh 10vw;
 	}
+
+	main img {
+		max-width: 100%;
+	}
 }
 
 /* DESKTOP */
 @media (min-width: 981px) {
 	body {
 		margin: 0vh 30vw;
+	}
+
+	main img {
+		max-width: 50%;
 	}
 }
