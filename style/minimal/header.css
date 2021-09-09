@@ -11,6 +11,10 @@ header {
     justify-content: space-between;
 }
 
+header.align-center {
+	align-items: center;
+}
+
 header .title {
     margin: 0;
 }

@@ -2,63 +2,77 @@
     box-sizing: border-box;
 }
 
+/* DEVICE AGNOSTIC */
+a.card-anchor {
+	text-decoration: none;
+	color: inherit;
+}
+
+section.card {
+	margin: 2em 0em;
+	padding-left: 1em;
+	border-width: 0 0 0 1px;
+	border-style: dashed;
+	border-color: inherit;
+}
+
+section.card:hover {
+	border-style: solid;
+}
+
+section.card .info-bar {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+section.card .title-area {
+	margin-right: 1em;
+}
+
+section.card .title {
+	margin: 0;
+}
+
+section.card .sub-title {
+	margin: 0;
+}
+
+section.card .date {
+	margin: 0.5em 0.0em;
+}
+
+section.card .brief {
+	margin: 0;
+	color: gray;
+}
+
+section.card hr {
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: black;
+}
+
 
 /* MOBILE */
 @media (max-width: 980px) {
-	a.card-anchor {
-		margin: 0;
-		padding: 0;
-		text-decoration: none;
-		color: inherit;
-	}
-
 	section.card {
-		margin: 1vw 0vw;
-		padding: 0vw 3vw;
-		border-width: 0 0 0 1px;
-		border-style: dashed;
-		border-color: inherit;
-	}
-
-	section.card:hover {
-		border-style: solid;
-	}
-
-	section.card .info-bar {
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: flex-start;
-		justify-content: space-between;
-	}
-
-	section.card .title-area {
-		margin: 0;
-		margin-right: 2vw;
+		font-size: 3vw;
 	}
 
 	section.card .title {
-		margin: 0;
 		font-size: 5vw;
 	}
+}
 
-	section.card .sub-title {
-		margin: 0;
-		font-size: 3vw;
+/* DESKTOP */
+@media (min-width: 981px) {
+	section.card {
+		font-size: 16pt;
 	}
 
-	section.card .date {
-		font-size: 3vw;
-		margin: 0.5em;
-	}
-
-	section.card .brief {
-		margin: 0;
-		font-size: 3vw;
-	}
-
-	section.card hr {
-		border-width: 1px;
-		border-style: solid;
-		border-color: lightgray;
+	section.card .title {
+		font-size: 24pt;
 	}
 }

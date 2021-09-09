@@ -71,7 +71,7 @@ TEMPLATING
             HTML converted markdown content.
 
 USAGE
-    impress [-tc file] [-tp file] [-dc dir] [-h] -i file -o file
+    impress [-tc file] [-tp file] [-c file] [-o file] [-r] [-h] file
 
 ARGUMENTS
     -tc file
@@ -82,18 +82,23 @@ ARGUMENTS
         Specifies the page template file. Defaults to
         `.gen/template/page.html`.
 
-    -dc dir
-        Specifies the card destination directory, i.e. where card
-        templates are rendered to. Defaults to `.gen/card/`.
+    -o file
+        Specifies the page output file. Defaults to 
+        `<base>/<root>.html` where `base` is the parent directory of the 
+        input file, and `root` is the name of the input file stripped of 
+        the last extension.
+
+    -c file
+        Specifies the card output file. Defaults to
+        `<base>/<root>.card.html` where `base` is the parent directory
+        of the input file, and `root` is the name of the input file
+        stripped of the last extension.
     
     -h
         Print this manual.
 
     -i file
         Specifies the mandatory input file.
-
-    -o file
-        Specifies the mandatory output file.
 
 AUTHOR
     (C) Maxim Kasyanenko, 2021. MIT License.
@@ -116,19 +121,19 @@ def pinfo(*items):
     sys.stdout.write(f'(INFO) {jointmessage(*items)}\n')
 
 
-def argvpop():
-    return sys.argv.pop(0) if sys.argv else None
-
-
 @dataclass
 class Args: # refer to the manual above
     f_template_card: str = '.gen/template/card.html'
     f_template_page: str = '.gen/template/page.html'
-    f_dest_card: str = '.gen/card/'
     f_input: str = None
+    f_card: str = None
     f_output: str = None
-    fail_on_roam: bool = True
+    fail_on_roam: bool = True # "roaming" variables in templates
     help_: bool = False
+
+
+def argvpop():
+    return sys.argv.pop(0) if sys.argv else None
 
 
 def parseargs():
@@ -140,16 +145,16 @@ def parseargs():
             args.f_template_card = argvpop()
         elif word == '-tp':
             args.f_template_page = argvpop()
-        elif word == '-dc':
-            args.f_dest_card = argvpop()
-        elif word == '-i':
-            args.f_input = argvpop()
+        elif word == '-c':
+            args.f_card = argvpop()
         elif word == '-o':
             args.f_output = argvpop()
         elif word == '-r':
             args.fail_on_roam = False
         elif word == '-h':
             args.help_ = True
+        else:
+            args.f_input = word
 
     return args
 
@@ -171,10 +176,32 @@ def main():
     if not os.path.isfile(a.f_input):
         perror(f'input file "{a.f_input}" does not exist.')
         return 1
+    
+    f_input_base, f_input_name = os.path.split(a.f_input)
+    f_input_root, f_input_ext = os.path.splitext(f_input_name)
+
+    # f_card
+    if not a.f_card:
+        a.f_card = os.path.join(f_input_base, f'{f_input_root}.card.html')
+
+    f_card_base, _ = os.path.split(a.f_card)
+    try:
+        if f_card_base:
+            os.makedirs(f_card_base, exist_ok=True)
+    except OSError as e:
+        perror('failed to create parent directories:', e)
+        return 1
 
     # f_output
     if not a.f_output:
-        perror('output file must be specified.')
+        a.f_output = os.path.join(f_input_base, f'{f_input_root}.html')
+
+    f_output_base, _ = os.path.split(a.f_output)
+    try:
+        if f_output_base:
+            os.makedirs(f_output_base, exist_ok=True)
+    except OSError as e:
+        perror('failed to create parent directories:', e)
         return 1
 
     # f_template_card
@@ -194,26 +221,6 @@ def main():
     if not os.path.isfile(a.f_template_page):
         perror(f'page template "{a.f_template_page}" does not exist.')
         return 1
-
-    # try to create directories of possible
-    try:
-        if a.f_dest_card:
-            os.makedirs(a.f_dest_card, exist_ok=True)
-    except OSError as e:
-        perror('failed to create card destination directory:', e)
-        return 1
-
-    try:
-        f_output_dir, _ = os.path.split(a.f_output)
-        if f_output_dir:
-            os.makedirs(f_output_dir, exist_ok=True)
-    except OSError as e:
-        perror('failed to create output parent directory:', e)
-        return 1
-
-    # setup for processing (used in header and elsewhere later)
-    _, in_name = os.path.split(a.f_input)
-    in_root, _ = os.path.splitext(in_name)
 
     # load in the template strings
     try:
@@ -286,17 +293,12 @@ def main():
 
     # write out the populated templates
     try:
-        with open(os.path.join(a.f_dest_card, f'{in_root}.html'), 'w') as h_out:
+        with open(a.f_card, 'w') as h_out:
             h_out.write(template_card)
-    except OSError as e:
-        perror('failed to write card:', e)
-        return 1
-
-    try:
         with open(a.f_output, 'w') as h_out:
             h_out.write(template_page)
     except OSError as e:
-        perror('failed to write page:', e)
+        perror('failed to write card/page:', e)
         return 1
 
     #

@@ -19,6 +19,6 @@ footer {
 /* DESKTOP */
 @media (min-width: 981px) {
     body {
-        margin: 0vh 25vw;
+        margin: 0vh 30vw;
     }
 }

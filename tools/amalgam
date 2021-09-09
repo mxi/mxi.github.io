@@ -1,0 +1,113 @@
+#!/usr/bin/python
+import os
+import sys
+from dataclasses import dataclass
+
+
+def jointmessage(*items):
+    return ' '.join(str(x) for x in items)
+
+
+def perror(*items):
+    sys.stderr.write(f'(ERROR) {jointmessage(*items)}\n')
+
+
+def pwarn(*items):
+    sys.stdout.write(f'(WARN) {jointmessage(*items)}\n')
+
+
+def pinfo(*items):
+    sys.stdout.write(f'(INFO) {jointmessage(*items)}\n')
+
+
+@dataclass
+class Args:
+    f_card: str = '.gen/card/'
+    f_input: str = '.gen/template/index.html'
+    f_output: str = 'index.html'
+    help_: bool = False
+
+
+def argvpop():
+    return sys.argv.pop(0) if sys.argv else None
+
+
+def parseargs():
+    args = Args()
+
+    while sys.argv:
+        word = argvpop()
+        if   word == '-dc':
+            args.f_card = argvpop()
+        elif word == '-i':
+            args.f_input = argvpop()
+        elif word == '-o':
+            args.f_output = argvpop()
+        elif word == '-h':
+            args.help_ = True
+
+    return args
+
+
+def main():
+    # check for args
+    a = parseargs()
+
+    if a.help_:
+        print(manual)
+        return 0
+
+    # f_input
+    if not a.f_input:
+        perror('input file is required.')
+        perror('try: amalgam -h')
+        return 1
+    
+    if not os.path.isfile(a.f_input):
+        perror(f'input file "{a.f_input}" does not exist.')
+        return 1
+
+    # f_output
+    if not a.f_output:
+        perror('output file must be specified.')
+        return 1
+
+    # f_card
+    if not os.path.isdir(a.f_card):
+        perror(f'card directory "{a.f_card}" does not exist.')
+        return 1
+
+    # load cards
+    cards = []
+    try:
+        for f_card in os.listdir(a.f_card):
+            with open(os.path.join(a.f_card, f_card)) as h_in:
+                cards.append(h_in.read())
+    except OSError as e:
+        perror('failed to read card:', e)
+        return 1
+
+    # join into index used for substitution
+    index = '\n'.join(cards)
+
+    # substitute template & write out
+    try:
+        with open(a.f_input) as h_in:
+            render = h_in.read().replace('@index@', index)
+    except OSError as e:
+        perror('failed to read index template:', e)
+        return 1
+
+    try:
+        with open(a.f_output, 'w') as h_out:
+            h_out.write(render)
+    except OSError as e:
+        perror('failed to write index:', e)
+        return 1
+
+    #
+    return 0
+
+
+if __name__ == '__main__':
+    exit(main())
