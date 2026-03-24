@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "foundation-icons";
+    src: url("foundation-icons/foundation-icons.woff");
+    font-weight: normal;
+    font-size: normal;
+}
+
+:root {
+    --black: rgb(40, 40, 40);
+    --white: rgb(240, 240, 240);
+    --tint: rgba(0, 0, 0, 0.1);
+    --width: 50rem;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+body > .base {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: var(--width);
+}
+
+/* HEADER */
+
+header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    margin: 1rem auto;
+    border-bottom: 1px solid var(--black);
+}
+
+header .site-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16pt
+}
+
+header nav {
+    margin: 4pt 0;
+    font-size: 11pt;
+}
+
+header nav a {
+    padding: 4pt 8pt;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 6pt 6pt 0 0;
+}
+
+header nav a:hover {
+    color: inherit;
+    background-color: var(--tint);
+}
+
+header nav a:before {
+    font-size: 10pt;
+    margin-right: 6pt;
+}
+
+header nav .home:before {
+    font-family: "foundation-icons";
+    content: "\f15a";
+}
+
+header nav .contact:before {
+    font-family: "foundation-icons";
+    content: "\f131";
+}
+
+header nav .selected-page {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+/* MAIN */
+
+main {
+    font-family: serif;
+    font-size: 14pt;
+    line-height: 1.5em;
+}
+
+/* FOOTER */
+
+footer .container {
+    max-width: var(--width);
+    margin: 1rem auto;
+    border-top: 1px solid var(--black);
+}
+
+footer .copyright {
+    margin: 0.5rem 0;
+    color: rgb(160, 160, 160);
+    font-size: 10pt;
+    font-weight: normal;
+    text-align: center;
+}
+
+@media screen and (width < 40rem) {
+
+header {
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/*
+header .container {
+    justify-content: space-around;
+    height: 16pt;
+    border: none;
+}
+    */
+
+    /*
+header nav {
+    background-color: var(--white);
+    position: fixed;
+    top: 3pt;
+}
+    */
+
+header nav a {
+    padding: 8pt;
+    border-radius: 0 0 6pt 6pt;
+}
+
+}
