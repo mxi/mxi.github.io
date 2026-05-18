@@ -8,7 +8,8 @@
 :root {
     --black: rgb(40, 40, 40);
     --white: rgb(240, 240, 240);
-    --tint: rgba(0, 0, 0, 0.1);
+    --light: rgb(160, 160, 160);
+    --tint: rgba(0, 0, 0, 0.2);
     --width: 50rem;
 }
 
@@ -28,21 +29,42 @@ body > .base {
 /* HEADER */
 
 header .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
+    position: relative;
     margin: 1rem auto;
-    border-bottom: 1px solid var(--black);
+    /* border-bottom: 1px solid var(--black); */
+}
+
+header .site-image {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1pt;
 }
 
 header .site-title {
-    margin: 0;
-    font-weight: bold;
-    font-size: 16pt
+    position: absolute;
+    top: 1rem;
+    left: 5rem;
+    font-size: 2rem;
+    margin: auto;
 }
 
 header nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/*
+
+header nav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     margin: 4pt 0;
     font-size: 11pt;
 }
@@ -79,6 +101,13 @@ header nav .selected-page {
     background-color: var(--black);
 }
 
+header nav .selected-page:hover {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+*/
+
 /* MAIN */
 
 main {
@@ -97,41 +126,9 @@ footer .container {
 
 footer .copyright {
     margin: 0.5rem 0;
-    color: rgb(160, 160, 160);
+    /* color: rgb(160, 160, 160); */
+    color: var(--light);
     font-size: 10pt;
     font-weight: normal;
     text-align: center;
-}
-
-@media screen and (width < 40rem) {
-
-header {
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-/*
-header .container {
-    justify-content: space-around;
-    height: 16pt;
-    border: none;
-}
-    */
-
-    /*
-header nav {
-    background-color: var(--white);
-    position: fixed;
-    top: 3pt;
-}
-    */
-
-header nav a {
-    padding: 8pt;
-    border-radius: 0 0 6pt 6pt;
-}
-
 }
